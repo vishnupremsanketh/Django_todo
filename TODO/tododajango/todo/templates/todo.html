@@ -1,0 +1,25 @@
+<html>
+    <h1>hey this is todo view</h1>
+
+
+    <ul>
+        {% for item in todoitem%}
+        <li>{{item.content}}</li>
+        <li>{{item.fn}}</li>
+        <form action="/deleteitem/{{item.id}}/"
+        style="display:inline;"
+        method="post">{% csrf_token %}
+            
+            <input type="submit" value ="delete"/>
+        </form>
+        {% endfor %}
+    </ul>
+
+
+    <form action="/additem/" method="post">{% csrf_token %}
+        <input type="text" name="addtext"/>
+        <input type="text" name="text2"/>
+        <input type="submit" value ="add"/>
+    </form>
+
+</html>
